@@ -6,7 +6,6 @@ class DBPlayer
     self.win_count = 0
     self.lost_count = 0
     self.tied_count = 0
-    @throws = []
     @valid_gambits = []
   end
 

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe DBPlayer do
-  subject = DBPlayer.new
+  # subject = DBPlayer.new
   it 'should be a DBplayer' do
     expect(subject).to be_a(DBPlayer)
   end
@@ -40,7 +40,8 @@ describe DBPlayer do
     end
 
     it "increases 'win_count' by 1 on second win" do
-      expect{subject.won}.to change(subject, :win_count).from(1).to(2)
+      expect{2.times {subject.won}}.to change(subject, :win_count).from(0).to(2)
+      # expect{subject.won}.to change(subject, :win_count).from(1).to(2)
     end
   end
 
@@ -52,7 +53,7 @@ describe DBPlayer do
     end
 
     it "increases 'lost_count' by 1 on second loss" do
-      expect{subject.lost}.to change(subject, :lost_count).from(1).to(2)
+      expect{2.times {subject.lost}}.to change(subject, :lost_count).from(0).to(2)
     end
   end
 
@@ -63,7 +64,7 @@ describe DBPlayer do
     end
 
     it "increases 'tied_count' by 1 on second tie" do
-      expect{subject.tied}.to change(subject, :tied_count).from(1).to(2)
+      expect{2.times {subject.tied}}.to change(subject, :tied_count).from(0).to(2)
     end
   end
 
