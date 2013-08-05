@@ -1,0 +1,14 @@
+
+This is a classroom exercise to play Rock Paper Scissors.
+
+Usage:
+    $ irb -I'./lib' -r'tournament'
+    > tournament = Tournament.new
+      => #<Tournament:0x007fba2b9f89d0 @players=[], @rounds=[]>
+    > tournament.play(true)
+    Round #0:            ScissorsPlayer vs.               PaperPlayer... WINNER:            ScissorsPlayer
+    Round #1:                RockPlayer vs.                     NoOne... WINNER:                RockPlayer
+    Round #2:            ScissorsPlayer vs.                RockPlayer... WINNER:                RockPlayer
+      => #<RockPlayer:0x007fba2b9e2e28>
+    >
+

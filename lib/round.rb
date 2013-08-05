@@ -35,7 +35,13 @@ class Round
         [player_one, player_two]
       else
         sorted_results = results.sort_by { |player, wins| wins }.reverse.map(&:first)
-        puts sorted_results.first if interactive
+        if interactive
+          if sorted_results.first == player_one
+            puts player_one_name
+          else
+            puts player_two_name
+          end
+        end
         sorted_results
       end
     end

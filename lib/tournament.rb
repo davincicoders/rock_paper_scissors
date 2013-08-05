@@ -42,7 +42,7 @@ class Tournament
       if @previous_winner.nil?
         @previous_winner = winner
       else
-        next_round_number = (@rounds.map(&:round_number).max || 0) + 1
+        next_round_number = [@rounds.map(&:round_number).max || 0, round.round_number].max + 1
         @rounds.push(Round.new(next_round_number, @previous_winner, winner))
         @previous_winner = nil
       end
