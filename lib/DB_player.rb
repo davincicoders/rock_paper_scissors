@@ -3,9 +3,9 @@ class DBPlayer
   attr_accessor :win_count, :lost_count, :tied_count
 
   def initialize
-    @win_count = 0
-    @lost_count = 0
-    @tied_count = 0
+    self.win_count = 0
+    self.lost_count = 0
+    self.tied_count = 0
     @throws = []
     @valid_gambits = []
   end
@@ -46,21 +46,21 @@ class DBPlayer
 
   def valid_gambits
     if @valid_gambits.empty?
-      @valid_gambits = self.load_gambits.shuffle
+      @valid_gambits = load_gambits.shuffle
     end
     @valid_gambits
   end
 
   def won
-    @win_count += 1
+    self.win_count += 1
   end
 
   def lost
-    @lost_count += 1
+    self.lost_count += 1
   end
 
   def tied
-    @tied_count += 1
+   self.tied_count += 1
   end
 
 end

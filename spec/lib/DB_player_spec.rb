@@ -7,22 +7,11 @@ describe DBPlayer do
   end
 
   describe "play" do
-    let(:valid_gambits2) {
-      [
-          %w(a b c d e f h),
-          %w(i j k l m n o),
-          %w(p q r s t u v),
-          %w(w x y z a1 b1 c1),
-          %w(d1 e1 f1 h1 i1 j1 k1),
-          %w(l1 m1 n1 o1 p1 q1 r1),
-          %w(s1 t1 u1 v1 w1 x1 y1)
-      ]
-    }
+
     it "plays things in order" do
       my_plays = []
       8.times do
-        my_plays << [subject.play, subject.play, subject.play, subject.play,
-                     subject.play, subject.play, subject.play]
+        my_plays << (1..7).map{ subject.play }
       end
 
       expect(my_plays).to include(['rock', 'rock', 'rock', 'scissors',
