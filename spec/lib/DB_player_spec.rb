@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe DBPlayer do
-  # subject = DBPlayer.new
   it 'should be a DBplayer' do
     expect(subject).to be_a(DBPlayer)
   end
