@@ -6,26 +6,6 @@ describe AdPlayer do
     expect(subject).to be_a(AdPlayer)
   end
 
-  #describe ".play" do
-  #
-  #  valid_plays = ['rock', 'paper', 'scissors']
-  #
-  #  it "returns a valid gambit the first time it's called" do
-  #       expect(valid_plays).to include(subject.play)
-  #  end
-  #
-  #  it "returns valid throw the second time it's called" do
-  #    subject.play
-  #    expect(valid_plays).to include(subject.play)
-  #  end
-  #
-  #  it "returns valid throw the first 100 times it's called" do
-  #    50.times do
-  #      expect(valid_plays).to include(subject.play)
-  #    end
-  #  end
-  #end
-
   describe "play" do
     let(:valid_gambits2) {
       [
@@ -54,26 +34,6 @@ describe AdPlayer do
     end
   end
 
-  #describe '.gambit' do
-  #  valid_gambits =
-  #      [
-  #          ['rock', 'rock', 'rock'], #avalanche
-  #          ['paper', 'paper', 'paper'], #bureaucrat
-  #          ['paper', 'scissors', 'rock'], #the crescendo
-  #          ['rock', 'scissors', 'paper'], #the denouement
-  #          ['rock', 'paper', 'paper'], #fistful o'dollars
-  #          ['paper','scissors','scissors'], #paper dolls
-  #          ['paper', 'scissors', 'paper'], #scissors sandwich
-  #          ['scissors', 'scissors', 'scissors'] #the toolbox
-  #      ]
-  #
-  #  it "returns valid gambit" do
-  #    100.times do
-  #      expect(valid_gambits).to include(subject.gambit)
-  #    end
-  #  end
-  #end
-  #
   describe '.won' do
 
     it "increases 'win_count' by 1" do
@@ -84,9 +44,6 @@ describe AdPlayer do
       expect{subject.won}.to change(subject, :win_count).from(1).to(2)
     end
 
-    #it "records the winning throw" do
-    #  expect{subject.won}. to change(subject, :win_throw).play(throw)
-    #end
   end
 
 

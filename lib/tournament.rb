@@ -1,4 +1,4 @@
-require 'spec_helper'
+#require 'spec_helper'
 class Tournament
   attr_accessor :players, :rounds
 
@@ -22,7 +22,7 @@ class Tournament
     end
 
     players.shuffle.each_slice(2) do |player_one, player_two|
-      @rounds << Round.new(player_one, player_two)
+      @rounds << ::Round.new(player_one, player_two)
     end
   end
 
@@ -38,8 +38,9 @@ class Tournament
       rounds_played += 1
       exit if rounds_played > 100
       # Play the round and determine winner and loser
+      print "round #{rounds_played}: #{round.player_one} versus #{round.player_two}... "
       (winner, loser) = round.play
-
+      puts "#{winner} wins!"
       if !@winner.nil?
         @rounds.push(Round.new(@winner, winner))
         @winner = nil
