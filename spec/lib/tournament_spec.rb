@@ -19,7 +19,9 @@ describe Tournament do
     it "loads the rounds randomly" do
       subject.stub(:players).and_return(players)
       subject.load_rounds
-      expect(subject.rounds).to eq([[rock_player, paper_player], [scissors_player, nil]])
+      rounds_text = subject.rounds.map { |r| r.to_s.gsub(/\s+/, ' ') }
+      expect(rounds_text).to include("Round #0: RockPlayer vs. PaperPlayer...")
+      expect(rounds_text).to include("Round #1: ScissorsPlayer vs. NoOne...")
     end
   end
 

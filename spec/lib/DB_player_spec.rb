@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+# Revision 2, deeper gambits
 describe DBPlayer do
   it 'should be a DBplayer' do
     expect(subject).to be_a(DBPlayer)

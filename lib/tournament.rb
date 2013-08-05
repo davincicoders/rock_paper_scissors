@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'round'
 class Tournament
   attr_accessor :players, :rounds
 
@@ -21,32 +21,32 @@ class Tournament
       load_players
     end
 
-    players.shuffle.each_slice(2) do |player_one, player_two|
-      @rounds << Round.new(player_one, player_two)
+    players.shuffle.each_slice(2).with_index do |(player_one, player_two), round_number|
+      self.rounds << Round.new(round_number, player_one, player_two)
     end
   end
 
-  def rounds
-    @rounds.map{|round| [ round.player_one, round.player_two ]}
-  end
-
-  def play
+  def play(interactive=false)
     load_rounds
-    @winner = nil
+    @previous_winner = nil
     rounds_played = 0
     while(round = @rounds.shift)
       rounds_played += 1
-      exit if rounds_played > 100
-      # Play the round and determine winner and loser
-      (winner, loser) = round.play
 
-      if !@winner.nil?
-        @rounds.push(Round.new(@winner, winner))
-        @winner = nil
+      # We should not have more than 100 rounds
+      exit if rounds_played > 100
+
+      # Play the round and determine winner and loser
+      (winner, loser) = round.play(interactive)
+
+      if @previous_winner.nil?
+        @previous_winner = winner
       else
-        @winner = winner
+        next_round_number = [@rounds.map(&:round_number).max || 0, round.round_number].max + 1
+        @rounds.push(Round.new(next_round_number, @previous_winner, winner))
+        @previous_winner = nil
       end
     end
-    @winner
+    @previous_winner
   end
 end
