@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'DB_player'
 
 describe DBPlayer do
   subject = DBPlayer.new
@@ -45,7 +44,6 @@ describe DBPlayer do
     end
   end
 
-
   describe '.won' do
 
     it "increases 'win_count' by 1" do
@@ -55,7 +53,6 @@ describe DBPlayer do
     it "increases 'win_count' by 1 on second win" do
       expect{subject.won}.to change(subject, :win_count).from(1).to(2)
     end
-
   end
 
 
@@ -80,7 +77,6 @@ describe DBPlayer do
       expect{subject.tied}.to change(subject, :tied_count).from(1).to(2)
     end
   end
-
 
 end
 

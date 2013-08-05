@@ -1,5 +1,7 @@
 class DBPlayer
 
+  attr_accessor :win_count, :lost_count, :tied_count
+
   def initialize
     @win_count = 0
     @lost_count = 0
@@ -9,38 +11,29 @@ class DBPlayer
   end
 
   def play
-    #throws = ["rock", "paper", "scissors"]
-    #throw = throws.sample
-    #@throws = gambit
-    #if throws.empty?
-    #  throws = gambit
-    #else
-    #  throw = @throws.shift
-    #  valid_gambits.unshift(@throws)
-    #  throw
-    #end
     gambit
   end
 
   def load_gambits
     [
-        #['rock', 'rock', 'rock'], #avalanche
-        #['paper', 'paper', 'paper'], #bureaucrat
-        #['paper', 'scissors', 'rock'], #the crescendo
-        #['rock', 'scissors', 'paper'], #the denouement
-        #['rock', 'paper', 'paper'], #fistful o'dollars
-        #['paper','scissors','scissors'], #paper dolls
-        #['paper', 'scissors', 'paper'], #scissor sandwich
-        #['scissors', 'scissors', 'scissors'] #the toolbox
+      # keep old gambits for reference
+      #['rock', 'rock', 'rock'], #avalanche
+      #['paper', 'paper', 'paper'], #bureaucrat
+      #['paper', 'scissors', 'rock'], #the crescendo
+      #['rock', 'scissors', 'paper'], #the denouement
+      #['rock', 'paper', 'paper'], #fistful of dollars
+      #['paper','scissors','scissors'], #paper dolls
+      #['paper', 'scissors', 'paper'], #scissor sandwich
+      #['scissors', 'scissors', 'scissors'] #the toolbox
 
-        ['rock', 'rock', 'rock', 'scissors', 'paper', 'scissors', 'scissors'], #avalanche
-        ['paper', 'paper', 'paper', 'scissors', 'scissors', 'scissors', 'scissors'], #bureaucrat
-        ['paper', 'scissors', 'rock', 'paper', 'paper', 'scissors', 'scissors'], #the crescendo
-        ['rock', 'scissors', 'paper', 'paper', 'scissors', 'paper', 'paper'], #the denouement
-        ['rock', 'paper', 'paper', 'scissors', 'scissors', 'scissors', 'rock'], #fistful o'dollars
-        ['paper','scissors','scissors', 'scissors', 'scissors', 'rock', 'paper'], #paper dolls
-        ['paper', 'scissors', 'paper', 'scissors', 'rock', 'scissors', 'rock'], #scissor sandwich
-        ['scissors', 'scissors', 'scissors', 'paper','paper', 'paper', 'rock'] #the toolbox
+      %w(rock rock rock scissors paper scissors scissors),
+      %w(paper paper paper scissors scissors scissors scissors),
+      %w(paper scissors rock paper paper scissors scissors),
+      %w(rock scissors paper paper scissors paper paper),
+      %w(rock paper paper scissors scissors scissors rock),
+      %w(paper scissors scissors scissors scissors rock paper),
+      %w(paper scissors paper scissors rock scissors rock),
+      %w(scissors scissors scissors paper paper paper rock)
     ]
   end
 
@@ -64,27 +57,10 @@ class DBPlayer
 
   def lost
     @lost_count += 1
-
   end
 
   def tied
     @tied_count += 1
   end
-
-  def win_count
-    @win_count
-  end
-
-  def lost_count
-    @lost_count
-  end
-
-  def tied_count
-    @tied_count
-  end
-
-  #def throws
-  #  @throws
-  #end
 
 end
