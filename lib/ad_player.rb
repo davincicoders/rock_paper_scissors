@@ -9,16 +9,6 @@ class AdPlayer
   end
 
   def play
-    #throws = ["rock", "paper", "scissors"]
-    #throw = throws.sample
-    #@throws = gambit
-    #if throws.empty?
-    #  throws = gambit
-    #else
-    #  throw = @throws.shift
-    #  valid_gambits.unshift(@throws)
-    #  throw
-    #end
     gambit
   end
 
@@ -29,7 +19,7 @@ class AdPlayer
         ['paper', 'scissors', 'rock'], #the crescendo
         ['rock', 'scissors', 'paper'], #the denouement
         ['rock', 'paper', 'paper'], #fistful o'dollars
-        ['paper','scissors','scissors'], #paper dolls
+        ['paper', 'scissors', 'scissors'], #paper dolls
         ['paper', 'scissors', 'paper'], #scissor sandwich
         ['scissors', 'scissors', 'scissors'] #the toolbox
     ]
