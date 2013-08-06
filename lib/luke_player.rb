@@ -6,50 +6,32 @@ class LukePlayer
     self.win_count = 0
     self.lost_count = 0
     self.tied_count = 0
-    @valid_gambits = []
+    @possible_plays = ['rock', 'paper', 'scissors']
+    @play = @possible_plays[rand(2)]
   end
 
   def play
-    gambit
-  end
-
-  def load_gambits
-    [
-      %w(rock rock rock scissors paper scissors scissors),
-      %w(paper paper paper scissors scissors scissors scissors),
-      %w(paper scissors rock paper paper scissors scissors),
-      %w(rock scissors paper paper scissors paper paper),
-      %w(rock paper paper scissors scissors scissors rock),
-      %w(paper scissors scissors scissors scissors rock paper),
-      %w(paper scissors paper scissors rock scissors rock),
-      %w(scissors scissors scissors paper paper paper rock)
-    ]
-  end
-
-  def gambit
-    gambit_result = valid_gambits.shift
-    current_play = gambit_result.shift
-    @valid_gambits.unshift(gambit_result) unless gambit_result.empty?
-    current_play
-  end
-
-  def valid_gambits
-    if @valid_gambits.empty?
-      @valid_gambits = load_gambits.shuffle
-    end
-    @valid_gambits
+    @play
   end
 
   def won
     self.win_count += 1
+    @play
   end
 
   def lost
     self.lost_count += 1
+    if @possible_plays.index(@play) == 0
+      @play = [@possible_plays.index(@play) + rand(3)]
+    elsif @possible_plays.index(@play) == 1
+      @play = [@possible_plays.index(@play) + rand(2)]
+    elsif @possible_plays.index(@play) == 2
+      @play = [@possible_plays.index(@play) - rand(3)]
+    end
   end
 
   def tied
     self.tied_count += 1
+    @play = @possible_plays.shuffle[0]
   end
-
 end

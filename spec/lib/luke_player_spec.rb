@@ -5,17 +5,6 @@ describe LukePlayer do
     expect(subject).to be_a(LukePlayer)
   end
 
-  describe "play" do
-    my_plays = []
-    let(:gambits) {subject.load_gambits}
-    it "plays things in order" do
-      gambits.each do |gambit|
-        my_plays << gambit
-        expect(my_plays).to include(gambit)
-      end
-    end
-  end
-
   describe '.won' do
 
     it "increases 'win_count' by 1" do
