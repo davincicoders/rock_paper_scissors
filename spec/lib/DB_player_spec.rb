@@ -1,7 +1,7 @@
 require 'spec_helper'
-# Revision 2, deeper gambits
+
 describe DBPlayer do
-  it 'should be a DBplayer' do
+  it 'should be a DBPlayer' do
     expect(subject).to be_a(DBPlayer)
   end
 
@@ -40,7 +40,6 @@ describe DBPlayer do
 
     it "increases 'win_count' by 1 on second win" do
       expect{2.times {subject.won}}.to change(subject, :win_count).from(0).to(2)
-      # expect{subject.won}.to change(subject, :win_count).from(1).to(2)
     end
   end
 
