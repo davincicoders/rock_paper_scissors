@@ -9,8 +9,8 @@ class Round
 
   def play(interactive=false)
     if interactive
-      player_one_name = sprintf("%25s", player_one.nil? ? 'NoOne' : player_one.class.name)
-      player_two_name = sprintf("%25s", player_two.nil? ? 'NoOne' : player_two.class.name)
+      player_one_name = sprintf("%25s", player_one.nil? ? 'NoOne' : "#{player_one.class.name}-#{player_one.object_id}")
+      player_two_name = sprintf("%25s", player_two.nil? ? 'NoOne' : "#{player_two.class.name}-#{player_two.object_id}")
 
       print "Round ##{round_number}: #{player_one_name} vs. #{player_two_name}... WINNER: "
     end
