@@ -10,7 +10,7 @@ describe Tournament do
 
   describe ".load_players" do
     it "loads the list of players" do
-      expect{ subject.load_players }.to change(subject.players, :count).from(0).to(3)
+      expect{ subject.load_players }.to change(subject.players, :count).from(0).to(4)
     end
   end
 
