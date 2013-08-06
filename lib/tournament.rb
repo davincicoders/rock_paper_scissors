@@ -26,7 +26,14 @@ class Tournament
     end
   end
 
+  def reset
+    self.players = []
+    self.rounds = []
+    @previous_winner = nil
+  end
+
   def play(interactive=false)
+    reset
     load_rounds
     @previous_winner = nil
     rounds_played = 0
@@ -47,6 +54,7 @@ class Tournament
         @previous_winner = nil
       end
     end
+    puts "Winner: #{@previous_winner.class.name}"
     @previous_winner
   end
 end

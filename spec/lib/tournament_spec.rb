@@ -29,7 +29,7 @@ describe Tournament do
     let(:players) { double('Players', :shuffle => [rock_player, paper_player, scissors_player], :empty? => false) }
     it "determines a winner" do
       subject.stub(:players).and_return(players)
-      expect(subject.play).to eq(scissors_player)
+      expect(subject.play).to be_a(ScissorsPlayer)
     end
   end
 end
